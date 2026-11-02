@@ -41,6 +41,17 @@
             box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
             border-color: #10b981 !important;
         }
+        /* 行・列の確率に応じた輝き効果 */
+        .glow-red {
+            border-color: #ef4444 !important;
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.5), inset 0 0 12px rgba(239, 68, 68, 0.2);
+            background-color: rgba(239, 68, 68, 0.08) !important;
+        }
+        .glow-yellow {
+            border-color: #eab308 !important;
+            box-shadow: 0 0 18px rgba(234, 179, 8, 0.45), inset 0 0 10px rgba(234, 179, 8, 0.15);
+            background-color: rgba(234, 179, 8, 0.08) !important;
+        }
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
@@ -146,7 +157,10 @@
                             <button id="cell-1" onclick="handleInput('1')" class="grid-cell relative bg-slate-800/90 hover:bg-slate-750 active:scale-95 transition-all rounded-xl p-3 sm:p-4 border border-slate-700/80 flex flex-col justify-between h-24 sm:h-28 text-left group">
                                 <div class="flex justify-between items-start w-full">
                                     <span class="font-mono font-extrabold text-lg sm:text-xl text-slate-200 group-hover:text-blue-400 transition">1</span>
-                                    <span id="rank-1" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    <div class="flex items-center gap-1">
+                                        <span id="star-1" class="text-base sm:text-lg hidden"></span>
+                                        <span id="rank-1" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="flex justify-between items-baseline mb-1">
@@ -162,7 +176,10 @@
                             <button id="cell-2" onclick="handleInput('2')" class="grid-cell relative bg-slate-800/90 hover:bg-slate-750 active:scale-95 transition-all rounded-xl p-3 sm:p-4 border border-slate-700/80 flex flex-col justify-between h-24 sm:h-28 text-left group">
                                 <div class="flex justify-between items-start w-full">
                                     <span class="font-mono font-extrabold text-lg sm:text-xl text-slate-200 group-hover:text-blue-400 transition">2</span>
-                                    <span id="rank-2" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    <div class="flex items-center gap-1">
+                                        <span id="star-2" class="text-base sm:text-lg hidden"></span>
+                                        <span id="rank-2" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="flex justify-between items-baseline mb-1">
@@ -178,7 +195,10 @@
                             <button id="cell-3" onclick="handleInput('3')" class="grid-cell relative bg-slate-800/90 hover:bg-slate-750 active:scale-95 transition-all rounded-xl p-3 sm:p-4 border border-slate-700/80 flex flex-col justify-between h-24 sm:h-28 text-left group">
                                 <div class="flex justify-between items-start w-full">
                                     <span class="font-mono font-extrabold text-lg sm:text-xl text-slate-200 group-hover:text-blue-400 transition">3</span>
-                                    <span id="rank-3" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    <div class="flex items-center gap-1">
+                                        <span id="star-3" class="text-base sm:text-lg hidden"></span>
+                                        <span id="rank-3" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="flex justify-between items-baseline mb-1">
@@ -209,7 +229,10 @@
                             <button id="cell-Q" onclick="handleInput('Q')" class="grid-cell relative bg-slate-800/90 hover:bg-slate-750 active:scale-95 transition-all rounded-xl p-3 sm:p-4 border border-slate-700/80 flex flex-col justify-between h-24 sm:h-28 text-left group">
                                 <div class="flex justify-between items-start w-full">
                                     <span class="font-mono font-extrabold text-lg sm:text-xl text-slate-200 group-hover:text-blue-400 transition">Q</span>
-                                    <span id="rank-Q" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    <div class="flex items-center gap-1">
+                                        <span id="star-Q" class="text-base sm:text-lg hidden"></span>
+                                        <span id="rank-Q" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="flex justify-between items-baseline mb-1">
@@ -225,7 +248,10 @@
                             <button id="cell-W" onclick="handleInput('W')" class="grid-cell relative bg-slate-800/90 hover:bg-slate-750 active:scale-95 transition-all rounded-xl p-3 sm:p-4 border border-slate-700/80 flex flex-col justify-between h-24 sm:h-28 text-left group">
                                 <div class="flex justify-between items-start w-full">
                                     <span class="font-mono font-extrabold text-lg sm:text-xl text-slate-200 group-hover:text-blue-400 transition">W</span>
-                                    <span id="rank-W" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    <div class="flex items-center gap-1">
+                                        <span id="star-W" class="text-base sm:text-lg hidden"></span>
+                                        <span id="rank-W" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="flex justify-between items-baseline mb-1">
@@ -241,7 +267,10 @@
                             <button id="cell-E" onclick="handleInput('E')" class="grid-cell relative bg-slate-800/90 hover:bg-slate-750 active:scale-95 transition-all rounded-xl p-3 sm:p-4 border border-slate-700/80 flex flex-col justify-between h-24 sm:h-28 text-left group">
                                 <div class="flex justify-between items-start w-full">
                                     <span class="font-mono font-extrabold text-lg sm:text-xl text-slate-200 group-hover:text-blue-400 transition">E</span>
-                                    <span id="rank-E" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    <div class="flex items-center gap-1">
+                                        <span id="star-E" class="text-base sm:text-lg hidden"></span>
+                                        <span id="rank-E" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="flex justify-between items-baseline mb-1">
@@ -272,7 +301,10 @@
                             <button id="cell-A" onclick="handleInput('A')" class="grid-cell relative bg-slate-800/90 hover:bg-slate-750 active:scale-95 transition-all rounded-xl p-3 sm:p-4 border border-slate-700/80 flex flex-col justify-between h-24 sm:h-28 text-left group">
                                 <div class="flex justify-between items-start w-full">
                                     <span class="font-mono font-extrabold text-lg sm:text-xl text-slate-200 group-hover:text-blue-400 transition">A</span>
-                                    <span id="rank-A" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    <div class="flex items-center gap-1">
+                                        <span id="star-A" class="text-base sm:text-lg hidden"></span>
+                                        <span id="rank-A" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="flex justify-between items-baseline mb-1">
@@ -288,7 +320,10 @@
                             <button id="cell-S" onclick="handleInput('S')" class="grid-cell relative bg-slate-800/90 hover:bg-slate-750 active:scale-95 transition-all rounded-xl p-3 sm:p-4 border border-slate-700/80 flex flex-col justify-between h-24 sm:h-28 text-left group">
                                 <div class="flex justify-between items-start w-full">
                                     <span class="font-mono font-extrabold text-lg sm:text-xl text-slate-200 group-hover:text-blue-400 transition">S</span>
-                                    <span id="rank-S" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    <div class="flex items-center gap-1">
+                                        <span id="star-S" class="text-base sm:text-lg hidden"></span>
+                                        <span id="rank-S" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="flex justify-between items-baseline mb-1">
@@ -304,7 +339,10 @@
                             <button id="cell-D" onclick="handleInput('D')" class="grid-cell relative bg-slate-800/90 hover:bg-slate-750 active:scale-95 transition-all rounded-xl p-3 sm:p-4 border border-slate-700/80 flex flex-col justify-between h-24 sm:h-28 text-left group">
                                 <div class="flex justify-between items-start w-full">
                                     <span class="font-mono font-extrabold text-lg sm:text-xl text-slate-200 group-hover:text-blue-400 transition">D</span>
-                                    <span id="rank-D" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    <div class="flex items-center gap-1">
+                                        <span id="star-D" class="text-base sm:text-lg hidden"></span>
+                                        <span id="rank-D" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">TOP 1</span>
+                                    </div>
                                 </div>
                                 <div>
                                     <div class="flex justify-between items-baseline mb-1">
@@ -616,6 +654,11 @@
             // Total inputs count
             document.getElementById('total-count').textContent = history.length;
 
+            // Determine Row and Column Glow Highlights
+            // rowHighlight/colHighlight per row/col index: 'red' | 'yellow' | null
+            const rowHighlight = rowProbs.map(p => p > 80 ? 'red' : (p > 70 ? 'yellow' : null));
+            const colHighlight = colProbs.map(p => p > 80 ? 'red' : (p > 70 ? 'yellow' : null));
+
             // Find TOP predicted cell
             let maxProb = -1;
             let topCell = null;
@@ -632,6 +675,7 @@
                 const probEl = document.getElementById(`prob-${k}`);
                 const barEl = document.getElementById(`bar-${k}`);
                 const rankEl = document.getElementById(`rank-${k}`);
+                const starEl = document.getElementById(`star-${k}`);
                 const cellBtn = document.getElementById(`cell-${k}`);
 
                 if (countEl) countEl.textContent = counts[k] || 0;
@@ -646,34 +690,77 @@
                     barEl.style.width = `${Math.min(100, probVal)}%`;
                 }
 
-                // Highlight Top Pick
-                if (history.length > 0 && k === topCell && maxProb > (100 / 9)) {
-                    if (rankEl) rankEl.classList.remove('hidden');
-                    if (cellBtn) {
-                        cellBtn.classList.add('grid-cell-glow-top', 'bg-emerald-950/20');
+                // Cell Probability Star Marker (80%+: ★, 70%+: ☆)
+                if (starEl) {
+                    if (cellProbs[k] > 80) {
+                        starEl.textContent = '★';
+                        starEl.className = 'text-base sm:text-lg text-amber-400 font-bold animate-bounce drop-shadow-[0_0_8px_rgba(251,191,36,0.8)]';
+                    } else if (cellProbs[k] > 70) {
+                        starEl.textContent = '☆';
+                        starEl.className = 'text-base sm:text-lg text-yellow-300 font-bold drop-shadow-[0_0_5px_rgba(253,224,71,0.6)]';
+                    } else {
+                        starEl.textContent = '';
+                        starEl.className = 'hidden';
                     }
-                } else {
-                    if (rankEl) rankEl.classList.add('hidden');
-                    if (cellBtn) {
-                        cellBtn.classList.remove('grid-cell-glow-top', 'bg-emerald-950/20');
+                }
+
+                // Clear previous custom row/col glow styles
+                if (cellBtn) {
+                    cellBtn.classList.remove('glow-red', 'glow-yellow', 'grid-cell-glow-top', 'bg-emerald-950/20');
+
+                    // Check row/column high probability glow (Red > 80%, Yellow > 70%)
+                    const pos = KEY_POSITIONS[k];
+                    const rGlow = rowHighlight[pos.row];
+                    const cGlow = colHighlight[pos.col];
+
+                    if (rGlow === 'red' || cGlow === 'red') {
+                        cellBtn.classList.add('glow-red');
+                    } else if (rGlow === 'yellow' || cGlow === 'yellow') {
+                        cellBtn.classList.add('glow-yellow');
+                    }
+
+                    // Highlight Top Pick if no row/col glow overrides it
+                    if (history.length > 0 && k === topCell && maxProb > (100 / 9)) {
+                        if (rankEl) rankEl.classList.remove('hidden');
+                        if (!rGlow && !cGlow) {
+                            cellBtn.classList.add('grid-cell-glow-top', 'bg-emerald-950/20');
+                        }
+                    } else {
+                        if (rankEl) rankEl.classList.add('hidden');
                     }
                 }
             });
 
-            // Render Row Summaries
+            // Render Row Summaries with Color Highlights
             rowProbs.forEach((prob, idx) => {
                 const pEl = document.getElementById(`row-prob-${idx}`);
                 const bEl = document.getElementById(`row-bar-${idx}`);
-                if (pEl) pEl.textContent = `${prob.toFixed(1)}%`;
-                if (bEl) bEl.style.height = `${Math.min(100, prob)}%`;
+                if (pEl) {
+                    pEl.textContent = `${prob.toFixed(1)}%`;
+                    pEl.className = prob > 80 ? 'text-xs sm:text-sm font-bold font-mono text-red-400 animate-pulse' : 
+                                   (prob > 70 ? 'text-xs sm:text-sm font-bold font-mono text-yellow-400' : 'text-xs sm:text-sm font-bold font-mono text-purple-400');
+                }
+                if (bEl) {
+                    bEl.style.height = `${Math.min(100, prob)}%`;
+                    bEl.className = prob > 80 ? 'bg-red-500 w-full h-0 transition-all duration-300' :
+                                   (prob > 70 ? 'bg-yellow-400 w-full h-0 transition-all duration-300' : 'bg-purple-400 w-full h-0 transition-all duration-300');
+                }
             });
 
-            // Render Column Summaries
+            // Render Column Summaries with Color Highlights
             colProbs.forEach((prob, idx) => {
                 const pEl = document.getElementById(`col-prob-${idx}`);
                 const bEl = document.getElementById(`col-bar-${idx}`);
-                if (pEl) pEl.textContent = `${prob.toFixed(1)}%`;
-                if (bEl) bEl.style.width = `${Math.min(100, prob)}%`;
+                if (pEl) {
+                    pEl.textContent = `${prob.toFixed(1)}%`;
+                    pEl.className = prob > 80 ? 'text-base font-bold font-mono text-red-400 animate-pulse' : 
+                                   (prob > 70 ? 'text-base font-bold font-mono text-yellow-400' : 'text-base font-bold font-mono text-cyan-400');
+                }
+                if (bEl) {
+                    bEl.style.width = `${Math.min(100, prob)}%`;
+                    bEl.className = prob > 80 ? 'bg-red-500 h-full w-0 transition-all duration-300' :
+                                   (prob > 70 ? 'bg-yellow-400 h-full w-0 transition-all duration-300' : 'bg-cyan-400 h-full w-0 transition-all duration-300');
+                }
             });
 
             // Top Summary Cards Update
